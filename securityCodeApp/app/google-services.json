@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1054801943786",
+    "project_id": "securitycode-6558f",
+    "storage_bucket": "securitycode-6558f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054801943786:android:8d1c84d3928c602fe9cb93",
+        "android_client_info": {
+          "package_name": "com.securityCode.splashscreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054801943786-hemmef5hbmpgkhpvl478qa3k73rchkub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAe149El9nV2tLhFh2dLo8iUbJ-YrMOc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054801943786-hemmef5hbmpgkhpvl478qa3k73rchkub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
