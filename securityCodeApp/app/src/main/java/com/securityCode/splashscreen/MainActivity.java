@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +26,7 @@ import com.google.firebase.ktx.Firebase;
 
 public class MainActivity extends AppCompatActivity {
 Button btn_login,btn_signup;
-EditText email_ed,password_ed,confirm_password;
+TextInputEditText email_ed,password_ed,confirm_password;
 TextView tv;
     private FirebaseAuth mAuth;
     @Override
@@ -38,9 +39,9 @@ TextView tv;
 
         btn_signup=(Button) findViewById(R.id.signup_btn);
         tv=(TextView)findViewById(R.id.tv);
-        email_ed=(EditText) findViewById(R.id.email_id);
-        password_ed=(EditText) findViewById(R.id.password_input);
-        confirm_password=(EditText)findViewById(R.id.confirm_password_input);
+        email_ed= findViewById(R.id.email_id);
+        password_ed= findViewById(R.id.password_input);
+        confirm_password=findViewById(R.id.confirm_password_input);
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override

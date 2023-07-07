@@ -10,14 +10,24 @@
     tools:context=".MainActivity">
 
 
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:id="@+id/email_id"
-        android:inputType="textEmailAddress"
-        android:hint="Email Id here..."/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_text_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        app:boxStrokeColor="#2196F3"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:id="@+id/email_id"
+            android:inputType="textEmailAddress"
+            android:hint="Email Id here..."/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:inputType="textPassword"
@@ -25,7 +35,7 @@
         android:id="@+id/password_input"
         android:hint="New Password"/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:inputType="textPassword"
