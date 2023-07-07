@@ -6,11 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="10dp"
-    tools:context=".SignUpActivity">
-
-
-
+    tools:context=".LoginActivity">
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_text_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -23,44 +19,38 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:id="@+id/email_id"
+            android:text="bilal1290m@gmail.com"
             android:inputType="textEmailAddress"
             android:hint="Email Id here..."/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp"
-        android:id="@+id/password_input"
-        android:hint="New Password"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp"
-        android:id="@+id/confirm_password_input"
-        android:hint="Confirm Password"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        app:boxStrokeColor="#2196F3"
+        android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="100dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:id="@+id/signup_btn"
-            android:text="SignUp"/>
+            android:id="@+id/pass_id"
+            android:inputType="textPassword"
+            android:text="11111111"
+            android:hint="Password"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/login_btn"
+        android:text="Login"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv"
+        android:id="@+id/tv1"
         />
 
 </LinearLayout>

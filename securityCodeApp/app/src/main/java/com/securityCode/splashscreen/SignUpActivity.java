@@ -9,7 +9,6 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +18,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.IgnoreExtraProperties;
-import com.google.firebase.ktx.Firebase;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 Button btn_login,btn_signup;
 TextInputEditText email_ed,password_ed,confirm_password;
 TextView tv;
@@ -83,20 +78,20 @@ TextView tv;
 
     public void signupMethod(String email,String password){
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(MainActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             tv.setText(user.toString());
 
                         } else {
                             // If sign in fails, display a message to the user.
 //                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed."+task.getException(),
+                            Toast.makeText(SignUpActivity.this, "Authentication failed."+task.getException(),
                                     Toast.LENGTH_SHORT).show();
                             // Need to handle Error messages here
                             tv.setText(""+(task.getException()));
