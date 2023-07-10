@@ -17,7 +17,7 @@ public class Global{
     }
 
     public String profileImageURL(String uid){
-        String URL="https://images.healthshots.com/healthshots/en/uploads/2020/12/08182549/positive-person.jpg";
+        String URL="https://dpemoji.com/wp-content/uploads/2023/01/Girls-Attitude-DP-5.png";
         return URL;
     }
 
