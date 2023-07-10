@@ -17,7 +17,9 @@ public class Global{
     }
 
     public String profileImageURL(String uid){
-        String URL="https://dpemoji.com/wp-content/uploads/2023/01/Girls-Attitude-DP-5.png";
+        String URL="https://firebasestorage.googleapis.com/v0/b/securitycode-6558f.appspot.com/o/profiles%2F"+
+                uid+ //TOKEN is added from firebase
+                "?alt=media&token=b0550829-d4da-4042-af6d-ccad0927771c";
         return URL;
     }
 

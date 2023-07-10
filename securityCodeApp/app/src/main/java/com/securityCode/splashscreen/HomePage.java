@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -40,15 +43,18 @@ public class HomePage extends AppCompatActivity {
     TextView tokenView,emailView;
     ImageView editProfile,imageUpload;
     Dialog edit_profile_dialog;
+    EditText phone_ed,name_ed,nic_ed;
 
-    String UID;
+    String UID,emailAddress;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
 
     //Firebase
     FirebaseStorage storage;
     StorageReference storageReference;
-    private FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+
     Global global=new Global();
 
     @SuppressLint("MissingInflatedId")
@@ -63,15 +69,24 @@ public class HomePage extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        global.setPicassoImage(global.profileImageURL(UID),editProfile);
+
+        database = FirebaseDatabase.getInstance();
 
         edit_profile_dialog= new Dialog(HomePage.this);
         edit_profile_dialog.setContentView(R.layout.edit_profile_dialog);
         update_btn=edit_profile_dialog.findViewById(R.id.btn_update);
+
+        phone_ed=edit_profile_dialog.findViewById(R.id.phone_number);
+        name_ed=edit_profile_dialog.findViewById(R.id.full_name);
+        nic_ed=edit_profile_dialog.findViewById(R.id.nic_number);
+
 //        edit_profile_dialog.setCancelable(false);
         emailView=edit_profile_dialog.findViewById(R.id.txt_email);
         imageUpload=edit_profile_dialog.findViewById(R.id.profile_image);
         UID=FirebaseAuth.getInstance().getUid();
+        myRef = database.getReference("users/"+UID);
+        global.setPicassoImage(global.profileImageURL(UID),editProfile);
+        emailAddress=FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         imageUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +97,10 @@ public class HomePage extends AppCompatActivity {
         update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                myRef.child("name").setValue(name_ed.getText().toString());
+                myRef.child("email").setValue(emailAddress);
+                myRef.child("contact").setValue(phone_ed.getText().toString());
+                myRef.child("nic").setValue(nic_ed.getText().toString());
                 uploadImage(UID);
             }
         });
