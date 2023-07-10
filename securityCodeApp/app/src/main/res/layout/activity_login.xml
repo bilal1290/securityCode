@@ -16,12 +16,13 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_id"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:id="@+id/email_id"
-            android:text="bilal1290m@gmail.com"
+            android:hint="Email Id here..."
             android:inputType="textEmailAddress"
-            android:hint="Email Id here..."/>
+            android:textColor="#757575"
+            tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -40,13 +41,28 @@
             android:text="11111111"
             android:hint="Password"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:id="@+id/login_btn"
-        android:text="Login"/>
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/login_btn"
+            android:text="Login"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/signup_btn"
+            android:text="Signup"/>
+    </LinearLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

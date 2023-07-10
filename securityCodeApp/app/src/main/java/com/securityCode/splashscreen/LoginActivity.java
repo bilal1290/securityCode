@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 TextInputEditText email_ed,password_ed;
-Button login_btn;
+Button login_btn,signup_btn;
 TextView tv;
     private FirebaseAuth mAuth;
     @SuppressLint("MissingInflatedId")
@@ -37,6 +38,7 @@ TextView tv;
         email_ed=findViewById(R.id.email_id);
         password_ed=findViewById(R.id.pass_id);
         login_btn= findViewById(R.id.login_btn);
+        signup_btn=findViewById(R.id.signup_btn);
         tv=(TextView) findViewById(R.id.tv1);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
@@ -45,14 +47,26 @@ TextView tv;
                 signIn(email_ed.getText().toString(),password_ed.getText().toString());
             }
         });
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secondActivityIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(secondActivityIntent);
+                finish();
+            }
+        });
     }
+    // Below OnStart method will check if user is already signedIn or not
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-//            reload();
+            Toast.makeText(LoginActivity.this, "success: "+currentUser.getUid(), Toast.LENGTH_SHORT).show();
+
+            startActivity(new Intent(LoginActivity.this, HomePage.class));
+            finish();
         }
     }
     public void signIn(String email,String password){
@@ -65,6 +79,9 @@ TextView tv;
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "success: "+user.getUid(), Toast.LENGTH_SHORT).show();
+                            Intent secondActivityIntent = new Intent(LoginActivity.this, HomePage.class);
+                            startActivity(secondActivityIntent);
+                            finish();
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
