@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SecurityCode</string>
+    <string name="email_hint">Email Id here...</string>
+
 </resources>
